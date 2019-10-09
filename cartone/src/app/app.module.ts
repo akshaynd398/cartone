@@ -22,9 +22,17 @@ import { SortPipe } from './pipes/sort.pipe';
 import { StorageService } from './services/storage.service';
 import { CartService } from './services/cart.service';
 import {APP_BASE_HREF} from '@angular/common';
-import { FooterComponent } from './footer/footer.component'; 
+import { FooterComponent } from './footer/footer.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+
+//import {MatButtonModule ,MatIconModule} from '@angular/material' ;
+import { from } from 'rxjs';
+
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule,ReactiveFormsModule,RouterConfig ],
+  imports:      [ BrowserModule, FormsModule,ReactiveFormsModule,RouterConfig, BrowserAnimationsModule],
   declarations: [ AppComponent, HelloComponent, dirConfig ,RouterDeclarations,FilterPipe,SortPipe, FooterComponent ],
-  providers : [ProductsModel,BillingFormModel,CompanyDetailsModel, StorageService,CartService,{provide: APP_BASE_HREF, useV
+  providers : [ProductsModel,BillingFormModel,CompanyDetailsModel, StorageService,CartService,{provide: APP_BASE_HREF, useValue : '/' }],
+  bootstrap:    [ AppComponent ]
+})
+export class AppModule { }
